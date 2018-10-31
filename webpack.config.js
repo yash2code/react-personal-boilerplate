@@ -1,21 +1,21 @@
 const webpack = require('webpack');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: './src/index.js',    //start bundling from here
     module: {
         rules: [
           {
             test: /\.(js|jsx)$/,
-            exclude: /node_modules/,
+            exclude: /node_modules/,    //exclude n0de_modules from bundling
             use: ['babel-loader']
           }
         ]
       },
     resolve: {
-        extensions: ['*', '.js', '.jsx']
+        extensions: ['*', '.js', '.jsx']      //extensions to bundle
       },
     output: {
-      path: __dirname + '/dist',
+      path: __dirname + '/dist',          //where to bundle 
       publicPath: '/',
       filename: 'bundle.js'
     },
@@ -23,7 +23,7 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin()
       ],
     devServer: {
-      contentBase: './dist',
+      contentBase: './dist',        //fetch from here for developemnt
       hot: true
     }
   };
